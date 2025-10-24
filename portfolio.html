@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Portfolio</title>
+    <style>
+        /* Global reset and setup */
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #464e4d, #303635);
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+header {
+    text-align: center;
+    padding: 50px 20px;
+    background: #303635;
+    color: #e0e0e0;
+}
+header img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 4px solid #c77546;
+    margin-bottom: 15px;
+}
+header h1 {
+    font-size: 2em;
+    margin: 10px 0;
+}
+header p {
+    font-size: 1.1em;
+    color: #bfbfbf;
+}
+.container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+section {
+    margin-bottom: 60px;
+}
+h2 {
+    color: #c77546;
+    border-left: 4px solid #c77546;
+    padding-left: 10px;
+    font-size: 1.5em;
+}
+.about p {
+    margin: 15px 0;
+    color: #ccc;
+}
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+.project-card {
+    background-color: #464e4d;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+.project-card:hover {
+    transform: translateY(-6px);
+    background-color: #555c5b;
+}
+.project-card h3 {
+    color: #99a9bb;
+    margin-bottom: 10px;
+}
+.project-card p {
+    font-size: 0.95em;
+    color: #bbb;
+}
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.skill {
+    background: #c77546;
+    color: #e0e0e0;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+footer {
+    text-align: center;
+    padding: 25px;
+    background-color: #303635;
+    color: #aaa;
+    border-top: 1px solid #444;
+}
+footer a {
+    color: #99a9bb;
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="images/photo_2025-10-16_20-12-16.jpg" alt="My Photo">
+    <h1>Mbadugha Collins Chikanyima</h1>
+    <p>Web Developer | Python Enthusiast | Frontend Explorer</p>
+</header>
+
+<div class="container">
+
+    <section class="about">
+        <h2>About Me</h2>
+        <p>
+            Hello! I'm Collins, a web developer passionate about building functional and beautiful websites that connect people and ideas. 
+            I enjoy turning concepts into interactive designs using HTML, CSS, and Python (Django).
+        </p>
+        <p>
+            When I’m not coding, you’ll probably find me on the basketball court, exploring music playlists, or studying how design shapes human experience. 
+            My goal is to grow into a full-stack developer who can create solutions that actually make life easier.
+        </p>
+    </section>
+
+    <section class="projects">
+        <h2>Projects</h2>
+        <div class="projects">
+            <div class="project-card">
+                <h3>Personal Portfolio Website</h3>
+                <p>A clean personal portfolio showcasing my skills, projects, and contact information using pure HTML, CSS, and a hint of animation.</p>
+            </div>
+            <div class="project-card">
+                <h3>Realtor Web App</h3>
+                <p>A collaborative Django-based project for showcasing property listings, built with authentication and CRUD operations.</p>
+            </div>
+            <div class="project-card">
+                <h3>Blog Application</h3>
+                <p>A simple Django CRUD project that lets users create, edit, and delete blog posts with a user-friendly interface.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills">
+        <h2>Skills</h2>
+        <div class="skills">
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">Python</div>
+            <div class="skill">Django</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">Git & GitHub</div>
+            <div class="skill">Responsive Design</div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <h2>Contact</h2>
+        <p>You can reach me through email or social platforms:</p>
+        <p>Email: <a href="mailto:cmbadugha.2203103@stu.cu.edu.ng">cmbadugha.2203103@stu.cu.edu.ng</a></p>
+        <p>Whatsapp: <a href="+2348900988909">+2348900988909</a></p>
+    </section>
+
+</div>
+
+<footer>
+    © 2025 Collins Chikanyima
+</footer>
+
+</body>
+</html>
