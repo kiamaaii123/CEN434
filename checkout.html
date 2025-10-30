@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Checkout</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #121212;
+      color: white;
+      text-align: center;
+      padding: 40px;
+    }
+    .cart-item {
+      background: #1e1e1e;
+      padding: 15px;
+      margin: 10px auto;
+      border-radius: 10px;
+      max-width: 400px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+    .price {
+      color: #ffca28;
+      font-weight: bold;
+    }
+    button {
+      background: linear-gradient(90deg, #0072ff, #00c6ff);
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 10px 25px;
+      font-size: 1em;
+      margin-top: 30px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+ <h1>🛒 Your Checkout</h1>
+  <div id="cart-items"></div>
+  <h2 id="total"></h2>
+  <button onclick="window.location.href='e-commerce.html'">Back to Shop</button>
+
+  <script>
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+const cartContainer = document.getElementById('cart-items');
+const totalElement = document.getElementById('total');
+let total = 0;
+
+if (cart.length === 0) {
+  cartContainer.innerHTML = '<p>Your cart is empty.</p>';
+} else {
+  cart.forEach((item, index) => {
+    const div = document.createElement('div');
+    div.classList.add('cart-item');
+    
+    const numericPrice = parseFloat(item.price.replace(/[^\d.]/g, '')) || 0;
+    const itemTotal = numericPrice * item.quantity;
+    total += itemTotal;
+
+    div.innerHTML = `
+      <h3>${item.title}</h3>
+      <p>Unit Price: <span class="price">${item.price}</span></p>
+      <p>Quantity: 
+        <button class="decrease">-</button>
+        <span class="quantity">${item.quantity}</span>
+        <button class="increase">+</button>
+      </p>
+      <p>Total: ₦${itemTotal.toLocaleString()}</p>
+    `;
+    cartContainer.appendChild(div);
+
+    // Handle quantity buttons
+    div.querySelector('.increase').addEventListener('click', () => {
+      item.quantity++;
+      localStorage.setItem('cart', JSON.stringify(cart));
+      location.reload(); // refresh to update display
+    });
+
+    div.querySelector('.decrease').addEventListener('click', () => {
+      if (item.quantity > 1) {
+        item.quantity--;
+      } else {
+        cart.splice(index, 1); // remove item if quantity hits zero
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+      location.reload();
+    });
+  });
+
+  totalElement.innerText = `Grand Total: ₦${total.toLocaleString()}`;
+}
+</script>
+
